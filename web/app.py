@@ -20,6 +20,9 @@ def ui():
 def openapi():
     pass
 
-if __name__ == "__main__":
-    webbrowser.open_new_tab('http://127.0.0.1:3000/')
+def main():
+    webbrowser.open_new_tab('http://127.0.0.1:3000')
     app.run(port=3000)
+
+if __name__ == "__main__":
+    main()

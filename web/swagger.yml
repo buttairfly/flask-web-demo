@@ -8,6 +8,15 @@ servers:
   - url: "/api"
 
 paths:
+  /:
+    post:
+      operationId: "app.index"
+      tags:
+        - "app"
+      summary: "Get the app"
+      responses:
+        "200":
+          description: "Successful"
   /exit:
     post:
       operationId: "app.exit"

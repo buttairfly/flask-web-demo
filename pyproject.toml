@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "webpage"
+name = "web"
 version = "0.1.0"
-description = "webpage"
+description = "demo webpage"
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
