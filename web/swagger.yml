@@ -1,0 +1,28 @@
+openapi: 3.0.0
+info:
+  title: "Demo api"
+  description: "An API for demo"
+  version: "1.0.0"
+
+servers:
+  - url: "/api"
+
+paths:
+  /exit:
+    post:
+      operationId: "app.exit"
+      tags:
+        - "app"
+      summary: "Exit the app"
+      responses:
+        "200":
+          description: "Successfully exit"
+  /people:
+    get:
+      operationId: "people.read_all"
+      tags:
+        - "People"
+      summary: "Read the list of people"
+      responses:
+        "200":
+          description: "Successfully read people list"
