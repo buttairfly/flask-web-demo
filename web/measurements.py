@@ -3,19 +3,17 @@ from datetime import datetime
 def get_timestamp():
     return datetime.now().strftime(("%Y-%m-%d %H:%M:%S"))
 
-PEOPLE = {
+measurements = {
     "Fairy": {
         "fname": "Tooth",
         "lname": "Fairy",
         "timestamp": get_timestamp(),
     },
-
     "Ruprecht": {
         "fname": "Knecht",
         "lname": "Ruprecht",
         "timestamp": get_timestamp(),
     },
-
     "Bunny": {
         "fname": "Easter",
         "lname": "Bunny",
@@ -24,4 +22,4 @@ PEOPLE = {
 }
 
 def read_all():
-    return list(PEOPLE.values())
+    return list(measurements.values())

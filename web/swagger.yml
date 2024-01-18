@@ -17,12 +17,30 @@ paths:
       responses:
         "200":
           description: "Successfully exit"
-  /people:
+  /ui:
     get:
-      operationId: "people.read_all"
+      operationId: "app.ui"
       tags:
-        - "People"
-      summary: "Read the list of people"
+        - "app"
+      summary: "Get swagger ui"
       responses:
         "200":
-          description: "Successfully read people list"
+          description: "Success"
+  /openapi.json:
+    get:
+      operationId: "app.openapi"
+      tags:
+        - "app"
+      summary: "Get swagger json"
+      responses:
+        "200":
+          description: "Success"
+  /measurements:
+    get:
+      operationId: "measurements.read_all"
+      tags:
+        - "Measurements"
+      summary: "Read the list of all measurements"
+      responses:
+        "200":
+          description: "Successfully read measurements list"
