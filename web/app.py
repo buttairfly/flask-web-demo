@@ -5,7 +5,6 @@ import webbrowser
 
 from connexion import FlaskApp
 from flask import render_template
-from measurements import read_all
 
 app = FlaskApp(__name__)
 app.add_api("swagger.yml")
@@ -14,11 +13,6 @@ app.add_api("swagger.yml")
 @app.route("/")
 def index():
     return render_template("index.html.j2")
-
-
-@app.route("/measurements")
-def measurements():
-    return render_template("index.html.j2", measurements=read_all())
 
 
 def exit():

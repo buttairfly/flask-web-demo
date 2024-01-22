@@ -1,52 +1,11 @@
 {% extends "base.html.j2" %}
 
 {% block content %}
-    <script>
-        _go_with_disable_exit = (target) => {
-          console.log("disable exit");
-          exit_disable=true;
-          location.assign(target);
-          console.log("enable exit");
-          exit_disable=false;
-        }
-
-        link_measurements = () => {
-            _go_with_disable_exit('/measurements')
-        };
-
-        link_api = () => {
-            _go_with_disable_exit('/api/ui')
-        };
-
-        const list = document.createDocumentFragment();
-        fetch_measurements = async () => {
-            const response = await fetch("/api/measurements", {method: "GET"});
-            const json = await response.json();
-
-            json.map((measurement) => {
-                const measurementItem = `
-                <div class="col card m-1 border-primary">
-                    <div class="card-header">${measurement.name}</div>
-                    <div class="card-body">
-                        <span class="card-title badge bg-primary">${measurement.value}</span>
-                        <span class="card-text badge bg-secondary">${measurement.timestamp}</span>
-                    </div>
-                </div>
-                `;
-                const item = document.createElement('div');
-                item.innerHTML = measurementItem;
-                list.appendChild(item);
-            });
-
-            const contentItem = document.getElementById("measurement-content");
-            contentItem.appendChild(list);
-        };
-    </script>
+    <script src="/static/js/index.js" charset="UTF-8" integrity="sha384-naM0ucfp05PqZsE620EXkaile5uJCc1/r4R+FlOIj5Cuc69v69sa39DX3z/rfYlN"> </script>
 
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark navbar">
         <div class="container"><div class="row">
             <div class="col"><button class="btn btn-primary" onclick="fetch_measurements()">Fetch</button></div>
-            <div class="col"><button class="btn btn-info"    onclick="link_measurements()" >Link </button></div>
             <div class="col"><button class="btn btn-danger"  onclick="link_api()"          >API </button></div>
         </div></div>
     </nav>
@@ -56,22 +15,4 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4" id="measurement-content">
         </div>
     </div>
-    {% if measurements %}
-    <br>
-    <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-            {% for measurement in measurements %}
-            <div>
-                <div class="col card m-1 border-info">
-                    <div class="card-header">{{ measurement.name }}</div>
-                    <div class="card-body">
-                        <span class="card-title badge bg-info">{{ measurement.value }}</span>
-                        <span class="card-text badge bg-secondary">{{ measurement.timestamp }}</span>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-    {% endif %}
 {% endblock %}

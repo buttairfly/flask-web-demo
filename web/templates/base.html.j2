@@ -1,26 +1,15 @@
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="/static/css/bootstrap.5.3.2.min.css" rel="stylesheet" integrity="sha384-WtGgxfD6rLk4NtVJLKA6a054942PSswbZzYu9PmD4U+cmIH9G/5D991C/zEYZvKj">
   </head>
   <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script>
-        var exit_disable=false;
-        const exit = async function() {
-            if (!exit_disable) {
-              const response = await fetch("/api/exit", {method: "POST"});
-              console.log("status", response.statusText, response.status);
-              return "do you really want to exit?"
-            }
-            return null
-        };
-        window.addEventListener("beforeunload", exit);
-    </script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>-->
+    <script src="/static/js/exit.js" charset="UTF-8" integrity="sha384-UqOtGfWBD26ngL2Ut5PZfkz3TvZ5pGytDyHdXUGpsM5Fdn/FRI5blYgQmQ+ExtRe"> </script>
+
     {% block content %}<p>This will appear if you don't set a block in the inheriting template.</p>{% endblock %}
   </body>
 </html>

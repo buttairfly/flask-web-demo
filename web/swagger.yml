@@ -1,55 +1,56 @@
+---
 openapi: 3.0.0
 info:
-  title: "Demo api"
-  description: "An API for demo"
-  version: "1.0.0"
+  title: Demo api
+  description: An API for demo
+  version: 1.0.0
 
 servers:
-  - url: "/api"
+  - url: /api
 
 paths:
   /:
-    post:
-      operationId: "app.index"
+    get:
+      operationId: app.index
       tags:
-        - "app"
-      summary: "Get the app"
+        - app
+      summary: Get the app html page
       responses:
         "200":
-          description: "Successful"
+          description: Successful
   /exit:
     post:
-      operationId: "app.exit"
+      operationId: app.exit
       tags:
-        - "app"
-      summary: "Exit the app"
+        - app
+      summary: Exit the app
       responses:
         "200":
-          description: "Successfully exit"
+          description: Successfully exit
   /ui:
     get:
-      operationId: "app.ui"
+      operationId: app.ui
       tags:
-        - "app"
-      summary: "Get swagger ui"
+        - app
+      summary: Get swagger ui
       responses:
         "200":
-          description: "Success"
+          description: Success
   /openapi.json:
     get:
-      operationId: "app.openapi"
+      operationId: app.openapi
       tags:
-        - "app"
-      summary: "Get swagger json"
+        - app
+      summary: Get swagger json
       responses:
         "200":
-          description: "Success"
+          description: Success
   /measurements:
     get:
-      operationId: "measurements.read_all"
+      operationId: measurements.read_all
       tags:
-        - "Measurements"
-      summary: "Read the list of all measurements"
+        - Measurements
+      summary: Read the list of all measurements
       responses:
         "200":
-          description: "Successfully read measurements list"
+          description: Successfully read measurements list

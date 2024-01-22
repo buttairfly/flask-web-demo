@@ -3,30 +3,30 @@ import string
 from datetime import datetime
 
 
-def get_timestamp() -> str:
+def _get_timestamp() -> str:
     return datetime.now().strftime(("%Y-%m-%d %H:%M:%S"))
 
 
-def get_value() -> str:
+def _get_value() -> str:
     return f"{random.random():.3f}"
 
 
-def randomword(length: int) -> str:
+def _get_random_name(length: int) -> str:
     letters = string.ascii_lowercase
     return "".join(random.choice(letters) for _ in range(length))
 
 
-def generate_measurement() -> dict[str, str]:
+def _generate_measurement() -> dict[str, str]:
     return {
-        "name": randomword(10),
-        "value": get_value(),
-        "timestamp": get_timestamp(),
+        "name": _get_random_name(10),
+        "value": _get_value(),
+        "timestamp": _get_timestamp(),
     }
 
 
-def generate_set(length: int) -> list[dict[str, str]]:
-    return [generate_measurement() for _ in range(length)]
+def _generate_set(length: int) -> list[dict[str, str]]:
+    return [_generate_measurement() for _ in range(length)]
 
 
-def read_all():
-    return generate_set(20)
+def read_all() -> list[dict[str, str]]:
+    return _generate_set(2)
